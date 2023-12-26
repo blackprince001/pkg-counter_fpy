@@ -2,7 +2,7 @@
 // Implementation of Python Counter Module
 // https://docs.python.org/3/library/collections.html?highlight=counter#collections.Counter
 
-use std::{collections::HashMap, panic};
+use std::{collections::HashMap, iter::zip, panic};
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct Counter<
@@ -85,18 +85,16 @@ impl<
   pub fn substract(&self, other: &Self) -> Counter<T> {
     let mut ctmp = Counter::new();
 
-    for (self_key, self_count) in &self.table {
-      for (other_key, other_count) in &other.table {
-        if self_key == other_key {
-          ctmp.update(
-            *self_key,
-            if self_count > other_count {
-              *self_count - *other_count
-            } else {
-              *other_count - *self_count
-            },
-          )
-        }
+    for ((self_key, self_count), (other_key, other_count)) in zip(&self.table, &other.table) {
+      if self_key == other_key {
+        ctmp.update(
+          *self_key,
+          if self_count > other_count {
+            *self_count - *other_count
+          } else {
+            *other_count - *self_count
+          },
+        )
       }
     }
     ctmp
