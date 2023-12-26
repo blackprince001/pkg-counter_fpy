@@ -21,6 +21,6 @@ include = ["src/", "LICENSE-*", "README.md", "CHANGELOG.md", "COPYRIGHT"]
 [dev-dependencies]
 criterion = "0.3"
 
-[[bench]]
-name = "counter_bench.rs"
-harness = false
+# [[bench]]
+# name = "counter_bench.rs"
+# harness = false
