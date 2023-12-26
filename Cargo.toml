@@ -2,7 +2,18 @@
 name = "counter_fpy"
 version = "0.1.2"
 edition = "2021"
-
+license = "MIT"
+authors = ["blackprince001"]
+keywords = ["counter", "python-counter"]
+categories = ["no-std"]
+rust-version = "1.74.0"
+description = "An implementation of Python's Counter module in Rust"
+homepage = "https://github.com/blackprince001/counter_fpy"
+documentation = "https://github.com/blackprince001/counter_fpy"
+repository = "https://github.com/blackprince001/counter_fpy"
+readme = "Readme.md"
+autobenches = true
+include = ["src/", "LICENSE-*", "README.md", "CHANGELOG.md", "COPYRIGHT"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
