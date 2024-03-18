@@ -5,24 +5,28 @@
 use std::{collections::HashMap, iter::zip, panic};
 
 #[derive(PartialEq, Eq, Clone)]
-pub struct Counter<
-  T: std::cmp::Eq + std::hash::Hash + std::marker::Copy + std::cmp::PartialOrd + std::cmp::PartialEq,
-> {
+pub struct Counter<T>
+where
+  T:
+    std::cmp::Eq + std::hash::Hash + std::marker::Copy + std::cmp::PartialOrd + std::cmp::PartialEq,
+{
   table: HashMap<T, usize>,
 }
 
-impl<
-    T: std::cmp::Eq + std::hash::Hash + std::marker::Copy + std::cmp::PartialOrd + std::cmp::PartialEq,
-  > Default for Counter<T>
+impl<T> Default for Counter<T>
+where
+  T:
+    std::cmp::Eq + std::hash::Hash + std::marker::Copy + std::cmp::PartialOrd + std::cmp::PartialEq,
 {
   fn default() -> Self {
     Counter { table: HashMap::new() }
   }
 }
 
-impl<
-    T: std::cmp::Eq + std::hash::Hash + std::marker::Copy + std::cmp::PartialOrd + std::cmp::PartialEq,
-  > Counter<T>
+impl<T> Counter<T>
+where
+  T:
+    std::cmp::Eq + std::hash::Hash + std::marker::Copy + std::cmp::PartialOrd + std::cmp::PartialEq,
 {
   pub fn new() -> Self {
     Counter { table: HashMap::new() }
